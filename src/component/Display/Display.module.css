@@ -1,0 +1,17 @@
+import React from "react";
+import { ButtonInc } from "../ButtonInc/ButtonInc";
+import {ButtonReset} from "../ButtonReset/ButtonRes";
+
+export function Display() {
+    return (
+        <div>
+            <div  >
+                <h1>Display</h1>
+            </div>
+            <div>
+                <ButtonInc/>
+                <ButtonReset/>
+            </div>
+        </div>
+    )
+}
