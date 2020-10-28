@@ -1,0 +1,33 @@
+.app {
+  display: flex;
+  text-align: center;
+  height: 100vh;
+  background: #282c34;
+}
+
+.wrapperSetBlock {
+margin: auto;
+}
+.wrapperDisplayBlock {
+margin: auto;
+}
+
+.wrapperInput {
+  border: 4px solid #00efff;
+  background-color: #282c34;
+  width: 400px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.btnSet {
+  border: 4px solid #00efff;
+  background-color: #282c34;
+  width: 400px;
+  height: 200px;
+  display: flex;
+}
+
+
+

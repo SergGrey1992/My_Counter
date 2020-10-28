@@ -1,18 +1,21 @@
 import React from "react";
+import s from "../ButtonInc/Button.module.css";
 
 export type ButtonPropsType = {
     title: string
     display: number
-    newSetDisplay: (display: number) => void
     resetDisplay: (display: number) => void
 }
 
-export function ButtonInc (props: ButtonPropsType) {
-    const newNumber = () => { props.newSetDisplay(props.display) }
+export function ButtonRes (props: ButtonPropsType) {
+    const resetNumber = () => { props.resetDisplay(props.display) }
 
     return (
-        <div>
-            <button onClick={ () => { newNumber() } } >{ props.title }</button>
+        <div >
+            <button
+                className={props.display > 0 ? s.styleButton : s.styleButtonError}
+                onClick={resetNumber}
+                disabled={props.display === 1}>{props.title}</button>
         </div>
     )
 }

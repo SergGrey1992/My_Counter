@@ -1,19 +1,29 @@
-import React from "react";
-
-export type ButtonPropsType = {
-    title: string
-    display: number
-    newSetDisplay: (display: number) => void
+.styleButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 30px;
+    background-color: #282c34;
+    color: #f9f9ff;
+    border-radius: 15px;
+    font-size: 25px;
+    padding: 35px;
+    margin: 30px;
+    border: 1px solid #00efff;
 }
 
-export function ButtonInc (props: ButtonPropsType) {
-    const newNumber = () => { props.newSetDisplay(props.display) }
-
-    return (
-        <div>
-            <button
-                className={s.styleButt}
-                onClick={ () => { newNumber() } } >{ props.title }</button>
-        </div>
-    )
+.styleButtonError {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 30px;
+    background-color: red;
+    color: #f9f9ff;
+    border-radius: 15px;
+    font-size: 25px;
+    padding: 35px;
+    margin: 30px;
+    border: 2px solid red;
 }
