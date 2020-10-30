@@ -1,12 +1,11 @@
 import React, {ChangeEvent} from 'react';
 import style from "./StartValueInput.module.css"
 
-
-
 type StartValueInputPropsType = {
     startValue: number
     setStartValue: (value: number) => void
     errorInput: boolean
+    maxValue: number
 }
 
 export function StartValueInput(props: StartValueInputPropsType) {
@@ -20,7 +19,15 @@ export function StartValueInput(props: StartValueInputPropsType) {
         <div className={style.inputWrapperStyle}>
             <h3>StartValue: </h3>
             <div>
-                <input className={props.errorInput ? style.inputStyle : style.inputError} type="number" value={props.startValue} onChange={onChangeValue}/>
+                <input className={
+                    `
+                    ${props.startValue < 0 ? style.inputError : style.inputStyle} 
+                 ${props.startValue > props.maxValue ? style.inputError : style.inputStyle}
+                 `
+                }
+                       type="number"
+                       value={props.startValue}
+                       onChange={onChangeValue}/>
             </div>
         </div>
     )

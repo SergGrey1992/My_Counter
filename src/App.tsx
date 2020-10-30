@@ -14,35 +14,47 @@ function App() {
     const [startValue, setStartValue] = useState(0)
 
     const [error, setError] = useState(true)
-    const [valueError, setValueError] = useState<string>("Error value not corrected")
+
+    const [valueSet, setValueSet] = useState<string>("Please Set button")
     const [errorInput, setErrorInput] = useState(true)
 
-    const errorInputChecked = () => {
+    const [disabledSet, setDisableSet] = useState<boolean>(false)
+    const [disabledInc, setDisableInc] = useState<boolean>(false)
+    const [disabledReset, setDisableReset] = useState<boolean>(false)
 
+
+
+
+    const errorInputChecked = () => {
         errorValue()
     }
 
     const errorValue = () => {
-         if (startValue === maxValue) {
+        if (startValue === maxValue) {
             setError(true)
             setErrorInput(false)
+            setValueSet("startValue = maxValue")
         } else if (startValue > maxValue) {
             setError(true)
             setErrorInput(false)
-        }   else if (startValue < 0) {
+            setValueSet("startValue > maxValue")
+        } else if (startValue < 0) {
             setError(true)
             setErrorInput(false)
+            setValueSet("startValue < 0")
         } else if (maxValue < 0) {
             setError(true)
             setErrorInput(false)
+            setValueSet("maxValue < 0")
         } else if (startValue < maxValue) {
-             setError(false)
-             setErrorInput(true)
-             setValueDisplay()
-         }
+            setError(false)
+            setErrorInput(true)
+            setValueDisplay()
+        }
+
     }
 
-    let resetDisplay = (display: number) => {
+    let resetDisplay = () => {
         setDisplay(0)
     }
 
@@ -56,6 +68,18 @@ function App() {
         } else if (display === maxValue) {
             setDisplay(display)
         }
+
+    }
+    const disabledButtonSet = () => {
+        setDisableSet(!disabledSet)
+    }
+    const disabledButtonReset = () => {
+        setDisableReset(!disabledReset)
+    }
+    const disabledButtonInc = () => {
+        if (display === display) {
+            setDisableInc(!disabledInc)
+        }
     }
 
     return (
@@ -65,13 +89,22 @@ function App() {
 
                 <div className={style.wrapperInput}>
 
-                    <MaxValueInput maxValue={maxValue} setMaxValue={setMaxValue} errorInput={errorInput}/>
-                    <StartValueInput startValue={startValue} setStartValue={setStartValue} errorInput={errorInput}/>
+                    <MaxValueInput maxValue={maxValue}
+                                   startValue={startValue}
+                                   setMaxValue={setMaxValue}
+                                   errorInput={errorInput}
+                    />
+
+                    <StartValueInput startValue={startValue}
+                                     maxValue={maxValue}
+                                     setStartValue={setStartValue}
+                                     errorInput={errorInput}
+                    />
 
                 </div>
                 <div className={style.btnSet}>
 
-                    <ButtonMultiFN title={"Set"} onClick={errorInputChecked}/>
+                    <ButtonMultiFN title={"Set"} onClick={errorInputChecked} />
 
                 </div>
             </div>
@@ -82,7 +115,8 @@ function App() {
                 <div>
 
                     <Display
-                        valueError={valueError}
+                        startValue={startValue}
+                        valueSet={valueSet}
                         error={error}
                         maxValue={maxValue}
                         display={display}
@@ -95,8 +129,8 @@ function App() {
 
                 <div className={s.wrapperBut}>
 
-                    <ButtonMultiFN title={"Inc"} onClick={incFN}/>
-                    <ButtonMultiFN title={"Reset"} onClick={setValueDisplay}/>
+                    <ButtonMultiFN title={"Inc"} onClick={incFN} />
+                    <ButtonMultiFN title={"Reset"} onClick={setValueDisplay} />
 
                 </div>
 
