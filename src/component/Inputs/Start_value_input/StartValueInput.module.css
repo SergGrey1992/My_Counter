@@ -1,3 +1,37 @@
-.inputStyle {
+.inputWrapperStyle {
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h3 {
+    color: wheat;
+}
+
+input {
+    margin-left: 5px;
+    text-align: center;
+    background-color: #282c34;
+    font-size: 25px;
+    color: wheat;
+    border: 1px solid #00efff;
+}
+
+[type="number"] {
+    outline: none;
+    border: 1px solid grey;
+    border-radius: 10px;
+}
+
+input:focus {
+    border: 1px solid #00efff;
+}
+
+.inputError {
+    margin-left: 5px;
+    text-align: center;
+    background-color: #f06674;
+    font-size: 25px;
+    color: wheat;
+    border: 1px solid #00efff;
 }

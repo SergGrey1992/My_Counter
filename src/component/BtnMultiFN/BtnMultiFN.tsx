@@ -1,5 +1,5 @@
 import React from "react";
-
+import s from "./Button.module.css"
 
 export type ButtonPropsType = {
     title: string
@@ -10,7 +10,7 @@ export function ButtonMultiFN(props: ButtonPropsType) {
 
     return (
         <div>
-            <button onClick={props.onClick}  >{props.title}</button>
+            <button className={s.styleButton} onClick={props.onClick}  >{props.title}</button>
         </div>
     )
 }
