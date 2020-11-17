@@ -10,8 +10,8 @@ import {ButtonMultiFN} from "./component/BtnMultiFN/BtnMultiFN";
 function App() {
     const [display, setDisplay] = useState<number>(0);
 
-    const [maxValue, setMaxValue] = useState(0)
-    const [startValue, setStartValue] = useState(0)
+    const [maxValue, setMaxValue] = useState(Number(localStorage.getItem("maxValue")))
+    const [startValue, setStartValue] = useState(Number(localStorage.getItem("startValue")))
 
     const [error, setError] = useState(true)
 
@@ -60,6 +60,8 @@ function App() {
 
     const setValueDisplay = () => {
         setDisplay(startValue)
+        localStorage.setItem("startValue", startValue.toString())
+        localStorage.setItem("maxValue", maxValue.toString())
     }
 
     const incFN = () => {

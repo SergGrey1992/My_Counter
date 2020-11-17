@@ -13,7 +13,6 @@ export function ButtonMultiFN(props: ButtonPropsType) {
         <div>
             <button className={s.styleButton}
                     onClick={props.onClick}
-
             >
                 {props.title}
             </button>
